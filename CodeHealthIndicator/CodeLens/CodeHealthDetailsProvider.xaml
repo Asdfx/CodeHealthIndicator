@@ -1,0 +1,35 @@
+﻿<editor:DetailsTemplateProvider x:Class="CodeHealthIndicator.CodeLens.CodeHealthDetailsProvider"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:editor="clr-namespace:Microsoft.VisualStudio.CodeSense.Editor;assembly=Microsoft.VisualStudio.CodeSense"
+        xmlns:intellisense="clr-namespace:Microsoft.VisualStudio.Language.Intellisense;assembly=Microsoft.VisualStudio.Text.Internal"
+        mc:Ignorable="d">
+    <DataTemplate>
+        <Grid Width="{Binding Path=(intellisense:CodeLensAdornment.DetailsMaxSize).Width, RelativeSource={RelativeSource Mode=Self}}">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Content="Maintainability:" Grid.Column="0" Grid.Row="0"/>
+            <Label Content="{Binding Path=Maintainability}" Grid.Column="1" Grid.Row="0"/>
+
+            <Label Content="Lines of code:" Grid.Column="0" Grid.Row="1"/>
+            <Label Content="{Binding Path=LinesOfCode}" Grid.Column="1" Grid.Row="1"/>
+
+            <Label Content="Halstead volume:" Grid.Column="0" Grid.Row="2"/>
+            <Label Content="{Binding Path=HalsteadVolume}" Grid.Column="1" Grid.Row="2"/>
+
+            <Label Content="Cyclomatic complexity:" Grid.Column="0" Grid.Row="3"/>
+            <Label Content="{Binding Path=CyclomaticComplexity}" Grid.Column="1" Grid.Row="3"/>
+        </Grid>
+    </DataTemplate>
+</editor:DetailsTemplateProvider>
